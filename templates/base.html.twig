@@ -1,0 +1,481 @@
+<html {{ sonata_seo_html_attributes() }}>
+<head {{ sonata_seo_head_attributes() }}>
+    {{ sonata_seo_title() }}
+    {{ sonata_seo_metadatas() }}
+    {{ sonata_seo_link_canonical() }}
+    {{ sonata_seo_lang_alternates() }}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link href="{{ asset('assets/images/favicon.ico') }}" type="img/x-icon" rel="shortcut icon">
+    <!-- All css files are included here. -->
+    {% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('assets/css/vendor/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/vendor/iconfont.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/vendor/helper.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/plugins/plugins.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    {% endblock %}
+    <!-- Modernizr JS -->
+    <script src="{{ asset('assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+    <body>
+<div id="main-wrapper">
+    <!--Header section start-->
+    <header class="header header-transparent header-sticky d-lg-block d-none">
+        <div class="header-top">
+            <div class="container">
+                <div class="row align-items-center">
+
+                    <!--Links start-->
+                    <div class="header-top-links col-lg-6">
+
+                    </div>
+                    <!--Links end-->
+                </div>
+
+            </div>
+        </div>
+        <div class="header-middle">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-2">
+                        <!--Logo Start-->
+                        <div class="logo">
+                            <a href="/"><img src="{{ asset('assets/images/logo.png') }}" alt=""></a>
+                        </div>
+                        <!--Logo End-->
+                    </div>
+                    <div class="col-lg-10">
+                        <!--Header Middle Right Start-->
+                        <div class="header-middle-right">
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <div class="emergncy-contact-area">
+                                        <div class="row">
+                                            <div class="col-sm-5 col-lg-5 pl-85 pl-md-70">
+                                                <div class="single-emergncy-contact">
+                                                    <div class="icon">
+                                                        <i class="fa fa-phone"></i>
+                                                    </div>
+                                                    <div class="content">
+                                                        <h3>{{ settingsAll.oneContactSettings.phone }}</h3>
+                                                        <span>{{ settingsAll.oneContactSettings.email }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-7 col-lg-6">
+                                                <div class="single-emergncy-contact">
+                                                    <div class="icon">
+                                                        <i class="fa fa-home"></i>
+                                                    </div>
+                                                    <div class="content">
+                                                        <h3>{{ settingsAll.oneContactSettings.address }}</h3>
+                                                        <span>{{ settingsAll.oneContactSettings.populatePlace }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 d-flex align-items-center">
+                                    {% if app.user %}
+                                        <style>
+                                            .avatars{
+                                                width: 50px;
+                                                border-radius: 50%;
+                                                margin-top: -20px;
+                                            }
+                                        </style>
+                                        <img class="avatars" src="{{ asset('uploads/team/'~app.user.avatar) }}" alt="">
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <!--Header Middle Right End-->
+                    </div>
+                </div>
+            </div>
+            <div class="social-menu">
+{#                <ul class="social-menu-top">#}
+{#                    <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>#}
+{#                    <li><a href="index.html#"><i class="fa fa-google-plus"></i></a></li>#}
+{#                    <li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>#}
+{#                    <li><a href="index.html#"><i class="fa fa-youtube-play"></i></a></li>#}
+{#                </ul>#}
+            </div>
+        </div>
+        <div class="header-bottom menu-right">
+            <div class="container">
+                <div class="row">
+                {{ include('menu/menu.html.twig') }}
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!--Header section end-->
+    <!-- offcanvas mobile menu -->
+   {{ include('menu/menu_mobile.html.twig') }}
+    <!-- End of offcanvas mobile menu -->
+        {% block body %}
+        {% endblock %}
+    <!--CTA section start-->
+    <div class="cta-section section bg-gray-two">
+        <div class="container">
+            <div class="row no-gutters align-items-center">
+                <div class="col-md-1">
+                    <div class="pentagon-icon cta-icon">
+                        <div class="icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="cta-content">
+                        <h2>Хотите быть частью нас?</h2>
+                        <p>Мы даем возможность людям работать в профессиональной среде со сложными задачами и ценностями.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="cta-btn text-center">
+                        <a href="{{ path('app_calculator') }}" class="btn"> ПОЛУЧИТЬ БЫСТРУЮ ЦЕНУ <i class="fa fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--CTA section end-->
+    <!--Footer section start-->
+    <footer class="footer-section section bg-image" data-bg="{{ asset('assets/images/bg/footer-bg.jpg') }}">
+
+        <!--Footer Top start-->
+        <div class="footer-top section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-85 pb-lg-65 pb-md-60 pb-sm-50 pb-xs-40">
+            <div class="container">
+                <div class="row">
+
+                    <!--Footer Widget start-->
+                    <div class="footer-widget col-lg-6 col-md-6 col-sm-6 col-12 mb-30">
+                        <div class="footer-logo">
+                            <a href="/"><img src="{{ asset('assets/images/logo-white.png') }}" alt=""></a>
+                            <p>{{ settingsAll.oneContactSettings.slogan }}</p>
+                        </div>
+                    </div>
+                    <!--Footer Widget end-->
+
+                    <!--Footer Widget start-->
+                    <div class="footer-widget col-lg-6 col-md-6 col-sm-6 col-12 mb-30">
+                        <h4 class="title"><span class="text">Офис</span></h4>
+                        <ul>
+                            <li><i class="fa fa-map-marker"></i><span>{{ settingsAll.oneContactSettings.address }}</span></li>
+                            <li><i class="fa fa-phone"></i><span><a >{{ settingsAll.oneContactSettings.phone }}</a></span></li>
+                            <li><i class="fa fa-envelope-o"></i><span><a >{{ settingsAll.oneContactSettings.email }}</a></span></li>
+                            <li><i class="fa fa-clock-o"></i><span><a>{{ settingsAll.oneContactSettings.week }}</a></span></li>
+                        </ul>
+                    </div>
+                    <!--Footer Widget end-->
+
+                    <!--Footer Widget start-->
+
+                    <!--Footer Widget end-->
+
+
+                </div>
+            </div>
+        </div>
+        <!--Footer Top end-->
+
+        <!--Footer bottom start-->
+        <div class="footer-bottom section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="copyright text-center">
+                            <p>Copyright &copy;{{ 'now' | date('Y') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Footer bottom end-->
+
+    </footer>
+    <!--Footer section end-->
+</div>
+<!-- All jquery file included here -->
+<script src="{{ asset('assets/js/vendor/jquery-1.12.4.min.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfmCVTjRI007pC1Yk2o2d_EhgkjTsFVN8&callback">
+</script>
+<script src="{{ asset('assets/js/vendor/popper.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/plugins.js') }}"></script>
+<script src="{{ asset('assets/js/main.js') }}"></script>
+
+<script>
+    setTimeout(function (){
+        $('#error-message').hide();
+    },3000)
+</script>
+<script>
+    if($('.contact-map').length){
+        function initialize() {
+            var mapOptions = {
+                zoom: 16,
+                scrollwheel: false,
+                center: new google.maps.LatLng({{ settingsAll.oneContactSettings.lat }}, {{ settingsAll.oneContactSettings.lng }}),
+                styles:[
+                    {
+                        "featureType": "administrative",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#444444"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "color": "#f2f2f2"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "saturation": "-100"
+                            },
+                            {
+                                "lightness": "57"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "lightness": "1"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 45
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#484848"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit.station.bus",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit.station.bus",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "saturation": "0"
+                            },
+                            {
+                                "lightness": "0"
+                            },
+                            {
+                                "gamma": "1.00"
+                            },
+                            {
+                                "weight": "1"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit.station.bus",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "saturation": "-100"
+                            },
+                            {
+                                "weight": "1"
+                            },
+                            {
+                                "lightness": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit.station.rail",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit.station.rail",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "gamma": "1"
+                            },
+                            {
+                                "lightness": "40"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit.station.rail",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "saturation": "-100"
+                            },
+                            {
+                                "lightness": "30"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "color": "#d2d2d2"
+                            },
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    }
+                ]
+            };
+            var map = new google.maps.Map(document.getElementById('contact-map'), mapOptions);
+            var marker = new google.maps.Marker({
+                position: map.getCenter(),
+                map: map,
+                animation: google.maps.Animation.BOUNCE
+            });
+
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    }
+</script>
+</body>
+
+</html>

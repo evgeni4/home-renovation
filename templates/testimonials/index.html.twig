@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="cost-calculator-section section fix bg-theme pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50">
+        <div class="container">
+
+            <div class="row no-gutters">
+                <div class="col-lg-2 d-lg-block d-none d-lg-flex align-items-end">
+                    <div class="cost-cal-sec-image">
+                        <img src="{{ asset('assets/images/bg/cal-sec-img.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-12">
+                    <div class="cost-calculator-inner">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="section-title text-center full-width">
+                                    <h1>Отзывы</h1>                                 </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="cost-cal-menu">
+                                    <ul class="nav justify-content-center">
+                                        <li><a class="active" data-toggle="tab" href="#interior">Добавить</a></li>
+                                        <li><a data-toggle="tab" href="#fence">Мои отзывы</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show  active" id="interior">
+                                        <div class="cost-calculator-area">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        {% for msg in app.session.flashBag.get('info') %}
+                                                            <div id="error-message" class="alert alert-success" role="alert">{{ msg }}</div>
+                                                        {% endfor %}
+                                                    </div>
+{#                                                    <div class="col-12">#}
+{#                                                        <div class="single-cost-cal">#}
+{#                                                            <label>Площадь</label>#}
+{#                                                            <input type="range" id="range-input" name="square" min="1" max="500" value="5" step="1">#}
+{#                                                            <span id="square-input">5</span>#}
+{#                                                        </div>#}
+{#                                                    </div>#}
+                                                    {{ form_start(form) }}
+                                                    <div class="col-12">
+                                                        <div class="single-cost-cal">
+                                                            {{ form_label(form.title) }}
+                                                            {{ form_widget(form.title) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="single-cost-cal">
+                                                            {{ form_label(form.specialty) }}
+                                                            {{ form_widget(form.specialty) }}
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="btn">Добавить</button>
+                                                    {{ form_end(form) }}
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="fence">
+                                        <div class="cost-calculator-area">
+                                            <form action=" ">
+                                                <div class="row">
+                                                    {% if comments %}
+                                                        {% for comment in comments %}
+                                                            <span class="col-12">
+                                                                Коментарий:
+                                                                <div class="single-cost-cal">{{ comment.title }}</div>
+                                                                <span class="">Дата:{{ comment.createdAt|date('d-m-y') }}</span>
+                                                                <hr>
+                                                            </div>
+                                                        {% endfor %}
+                                                     {% else %}
+                                                        <div class="col-md-12 alert alert-danger"><strong>Нет коментарий!!!</strong></div>
+                                                    {% endif %}
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="paver">
+                                        <div class="cost-calculator-area">
+                                            <form action="">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="single-cost-cal">
+                                                            <label>Ширина области в метрах</label>
+                                                            <input type="range" id="asphalt-width-input" name="width-asphalt" min="0" max="5000" value="1" step="1">
+                                                            <span id="asphalt-total-width" class="range-total">0</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="single-cost-cal">
+                                                            <label>Длина области в метрах</label>
+                                                            <input type="range" id="asphalt-length-input" name="length-asphalt" min="0" max="5000" value="1" step="1">
+                                                            <span id="asphalt-total-length" class="range-total">0</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="single-cost-cal">
+                                                            <label>Подготовка поверхности</label>
+                                                            <div class="switch">
+                                                                <input id="asphalt-checkbox" value="1.5" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                                                <label for="asphalt-checkbox"></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="total-cost-cal">
+                                                            <div class="total-text">
+                                                                <i class="fa fa-money"></i>
+                                                                <span>Всего</span>
+                                                            </div>
+                                                            <div class="point-submit">
+                                                                <div class="total-point">
+                                                                    <span id="asphalt-total-price">102.00</span>
+                                                                    <span>₽</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 d-lg-block d-none d-lg-flex align-items-end">
+                    <div class="cost-cal-sec-image-2">
+                        <img src="{{ asset('assets/images/bg/cal-sec-img2.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

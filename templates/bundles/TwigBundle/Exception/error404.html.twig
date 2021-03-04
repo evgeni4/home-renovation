@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <!-- 404 Section Start -->
+    <div class="404-section section bg-gray pt-95 pt-lg-75 pt-md-65 pt-sm-55 pt-xs-45 pb-100 pb-lg-80 pb-md-70 pb-sm-60 pb-xs-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="error-area">
+                        <h2>404</h2>
+                        <h3>Страница не найдена</h3>
+                        <p>К сожалению, этой страницы не существует.</p>
+                        <a href="{{ path('home') }}" class="btn">Возвращайся на главную страницу!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 404 Section End -->
+{% endblock %}

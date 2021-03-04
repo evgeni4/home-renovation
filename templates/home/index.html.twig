@@ -1,0 +1,472 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!--slider section start-->
+    <div class="hero-section section position-relative">
+        <div class="hero-slider section">
+            {% for slider in sliders %}
+                <!--Hero Item start-->
+                <div class="hero-item bg-image" data-bg="{{ asset('uploads/slider/'~slider.smallImage) }}">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+
+                                <!--Hero Content start-->
+                                <div class="hero-content-2">
+                                    {% set icon = random(2) %}
+                                    <img class="left-img" src="{{ asset('uploads/slider/'~icon~'.png') }}" alt="">
+                                    {% for title  in slider.title %}
+                                        <h3 class="sm-size white">{{ title }}</h3>
+                                    {% endfor %}
+                                    <a href="{{ path('app_about') }}" class="btn">читать<i class="fa fa-angle-double-right"></i></a>
+                                </div>
+                                <!--Hero Content end-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Hero Item end-->
+            {% endfor %}
+
+        </div>
+    </div>
+    <!--slider section end-->
+    <!--Features section start-->
+    <div class="features-section section pt-30 pt-lg-15 pt-md-0 pt-sm-5 pt-xs-15">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12">
+                    <!-- Service Title Start -->
+                    <div class="features-title">
+                        <h1>Услуги мастера</h1>
+                    </div>
+                    <!-- Service Title End -->
+                </div>
+
+                <div class="col-lg-8 col-12">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <!-- Single Features Start -->
+                            <div class="single-features mb-35">
+                                <div class="pentagon-icon">
+                                    <div class="icon">
+                                        <i class="rn-renovation"></i>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <h4><a href="index.html#">Профессиональный мастер</a></h4>
+                                    <p>Наша цель - предоставить вам лучший сервис на все руки.</p>
+                                </div>
+                            </div>
+                            <!-- Single Features End -->
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <!-- Single Features Start -->
+                            <div class="single-features mb-35">
+                                <div class="pentagon-icon">
+                                    <div class="icon">
+                                        <i class="pe-7s-clock"></i>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <h4><a href="index.html#">24/7 Услуги</a></h4>
+                                    <p>Мы обеспечиваем 24/7 обслуживание. Когда бы вы ни звонили, мы обслуживаем вас.</p>
+                                </div>
+                            </div>
+                            <!-- Single Features End -->
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <!-- Single Features Start -->
+                            <div class="single-features mb-35">
+                                <div class="pentagon-icon">
+                                    <div class="icon">
+                                        <i class="pe-7s-cash"></i>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <h4><a href="index.html#">Доступная цена</a></h4>
+                                    <p>Мы проверяем наличие сбоев, требующих внимания, чтобы вы были в безопасности и сэкономили.</p>
+                                </div>
+                            </div>
+                            <!-- Single Features End -->
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <!-- Single Features Start -->
+                            <div class="single-features mb-35">
+                                <div class="pentagon-icon">
+                                    <div class="icon">
+                                        <i class="pe-7s-science"></i>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <h4><a href="index.html#">Лучшие материалы</a></h4>
+                                    <p>Работа с нами включает в себя тщательно спланированную серию шагов.</p>
+                                </div>
+                            </div>
+                            <!-- Single Features End -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <div class="features-image text-md-center">
+                        <img src="{{ asset('assets/images/service/service-cap.jpg') }}" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--Features section end-->
+
+
+
+
+
+
+    <!--Service section start-->
+    <div class="service-section section pt-90 pt-lg-70 pt-md-30 pt-sm-45 pt-xs-40  pb-70 pb-lg-50 pb-md-40 pb-sm-30 pb-xs-20">
+        <div class="container-fluid pl-30 pr-30">
+            <div class="row">
+                {% for category in categories %}
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <!-- Single Service Start -->
+                        <div class="single-service mb-30">
+                            <div class="service-image">
+                                <img src="{{ asset('uploads/categories/'~category.image) }}" alt="">
+                            </div>
+                            <div class="service-icon pentagon-icon">
+                                <div class="icon">
+                                    <i class="{{ category.icon }}"></i>
+                                </div>
+                                <h3><a href="">{{ category.title|capitalize }}</a></h3>
+                            </div>
+                            <div class="service-content">
+                                <h3><a href="service-renovation.html">{{ category.title|capitalize }}</a></h3>
+                                <p>{{ category.description }}</p>
+                                <a class="btn service-btn" href=""> еще <i class="fa fa-angle-double-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- Single Service End -->
+                    </div>
+                {% endfor %}
+{#                <div class="col-lg-4 col-md-6 col-sm-6">#}
+{#                    <!-- Single Service Start -->#}
+{#                    <div class="single-service mb-30">#}
+{#                        <div class="service-image">#}
+{#                            <img src="assets/images/service/service-1.jpg" alt="">#}
+{#                        </div>#}
+{#                        <div class="service-icon pentagon-icon">#}
+{#                            <div class="icon">#}
+{#                                <i class="rn-renovation"></i>#}
+{#                            </div>#}
+{#                            <h3><a href="service-renovation.html">Renovation</a></h3>#}
+{#                        </div>#}
+{#                        <div class="service-content">#}
+{#                            <h3><a href="service-renovation.html">Renovation</a></h3>#}
+{#                            <p>We can help you bring new life to existing rooms and develop unused spaces.</p>#}
+{#                            <a class="btn service-btn" href="service-renovation.html"> READ MORE <i class="fa fa-angle-double-right"></i></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single Service End -->#}
+{#                </div>#}
+{#                <div class="col-lg-4 col-md-6 col-sm-6">#}
+{#                    <!-- Single Service Start -->#}
+{#                    <div class="single-service mb-30">#}
+{#                        <div class="service-image">#}
+{#                            <img src="assets/images/service/service-2.jpg" alt="">#}
+{#                        </div>#}
+{#                        <div class="service-icon pentagon-icon">#}
+{#                            <div class="icon">#}
+{#                                <i class="rn-electrical"></i>#}
+{#                            </div>#}
+{#                            <h3><a href="service-electrical.html">Electrical</a></h3>#}
+{#                        </div>#}
+{#                        <div class="service-content">#}
+{#                            <h3><a href="service-electrical.html">Electrical</a></h3>#}
+{#                            <p>We can help you bring new life to existing rooms and develop unused spaces.</p>#}
+{#                            <a class="btn service-btn" href="service-electrical.html"> READ MORE <i class="fa fa-angle-double-right"></i></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single Service End -->#}
+{#                </div>#}
+{#                <div class="col-lg-4 col-md-6 col-sm-6">#}
+{#                    <!-- Single Service Start -->#}
+{#                    <div class="single-service mb-30">#}
+{#                        <div class="service-image">#}
+{#                            <img src="assets/images/service/service-3.jpg" alt="">#}
+{#                        </div>#}
+{#                        <div class="service-icon pentagon-icon">#}
+{#                            <div class="icon">#}
+{#                                <i class="rn-painting"></i>#}
+{#                            </div>#}
+{#                            <h3><a href="service-painting.html">Painting</a></h3>#}
+{#                        </div>#}
+{#                        <div class="service-content">#}
+{#                            <h3><a href="service-painting.html">Painting</a></h3>#}
+{#                            <p>We can help you bring new life to existing rooms and develop unused spaces.</p>#}
+{#                            <a class="btn service-btn" href="service-painting.html"> READ MORE <i class="fa fa-angle-double-right"></i></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single Service End -->#}
+{#                </div>#}
+{#                <div class="col-lg-4 col-md-6 col-sm-6">#}
+{#                    <!-- Single Service Start -->#}
+{#                    <div class="single-service mb-30">#}
+{#                        <div class="service-image">#}
+{#                            <img src="assets/images/service/service-4.jpg" alt="">#}
+{#                        </div>#}
+{#                        <div class="service-icon pentagon-icon">#}
+{#                            <div class="icon">#}
+{#                                <i class="rn-plumbing"></i>#}
+{#                            </div>#}
+{#                            <h3><a href="service-plumbing.html">Plumbing</a></h3>#}
+{#                        </div>#}
+{#                        <div class="service-content">#}
+{#                            <h3><a href="service-plumbing.html">Plumbing</a></h3>#}
+{#                            <p>We can help you bring new life to existing rooms and develop unused spaces.</p>#}
+{#                            <a class="btn service-btn" href="service-plumbing.html"> READ MORE <i class="fa fa-angle-double-right"></i></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single Service End -->#}
+{#                </div>#}
+{#                <div class="col-lg-4 col-md-6 col-sm-6">#}
+{#                    <!-- Single Service Start -->#}
+{#                    <div class="single-service mb-30">#}
+{#                        <div class="service-image">#}
+{#                            <img src="assets/images/service/service-5.jpg" alt="">#}
+{#                        </div>#}
+{#                        <div class="service-icon pentagon-icon">#}
+{#                            <div class="icon">#}
+{#                                <i class="rn-heating"></i>#}
+{#                            </div>#}
+{#                            <h3><a href="service-heating.html">Heating</a></h3>#}
+{#                        </div>#}
+{#                        <div class="service-content">#}
+{#                            <h3><a href="service-heating.html">Heating</a></h3>#}
+{#                            <p>We can help you bring new life to existing rooms and develop unused spaces.</p>#}
+{#                            <a class="btn service-btn" href="service-heating.html"> READ MORE <i class="fa fa-angle-double-right"></i></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single Service End -->#}
+{#                </div>#}
+{#                <div class="col-lg-4 col-md-6 col-sm-6">#}
+{#                    <!-- Single Service Start -->#}
+{#                    <div class="single-service mb-30">#}
+{#                        <div class="service-image">#}
+{#                            <img src="assets/images/service/service-6.jpg" alt="">#}
+{#                        </div>#}
+{#                        <div class="service-icon pentagon-icon">#}
+{#                            <div class="icon">#}
+{#                                <i class="rn-home"></i>#}
+{#                            </div>#}
+{#                            <h3><a href="service-roofing.html">Roofing</a></h3>#}
+{#                        </div>#}
+{#                        <div class="service-content">#}
+{#                            <h3><a href="service-roofing.html">Roofing</a></h3>#}
+{#                            <p>We can help you bring new life to existing rooms and develop unused spaces.</p>#}
+{#                            <a class="btn service-btn" href="service-roofing.html"> READ MORE <i class="fa fa-angle-double-right"></i></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Single Service End -->#}
+{#                </div>#}
+
+            </div>
+        </div>
+    </div>
+    <!--Service section end-->
+
+    <!--Testimonial section start-->
+    <div class="testimonial-section section bg-gray pt-95 pt-lg-75 pt-md-65 pt-sm-55 pt-xs-50 pb-100 pb-lg-80 pb-md-70 pb-sm-60 pb-xs-50">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="section-title text-left mb-35">
+                        <h1>Отзывы</h1>
+                        <p>От полной готовности до руководителя проекта. Оставьте здание профессионалам.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="testimonial-slider-content gutter-30 section">
+
+                        {% for comment in comments %}
+                            <div class="testimonial gutter-item">
+                                <div class="testimonial-inner">
+                                    <div class="testimonial-description">
+                                        <blockquote class="testimonials-text">
+                                            <p>{{ comment.title }}</p>
+                                        </blockquote>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <div class="author-thumb">
+                                            <img style="border-radius: 50%" src="{{ asset('uploads/team/'~comment.author.avatar) }}" alt="">
+                                        </div>
+                                        <div class="author-info">
+                                            <h4>{{ comment.author.fullName }}</h4>
+                                            <span>{{ comment.specialty }}</span>
+                                            <span class="url"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+{#                        <div class="testimonial gutter-item">#}
+{#                            <div class="testimonial-inner">#}
+{#                                <div class="testimonial-description">#}
+{#                                    <blockquote class="testimonials-text">#}
+{#                                        <p>I have used the services of your company on a few occasions. Your crews are always personable, prompt and efficient. The work performed has been very good and as described. I have confidence in recommending their services to anyone.</p>#}
+{#                                    </blockquote>#}
+{#                                </div>#}
+{#                                <div class="testimonial-author">#}
+{#                                    <div class="author-thumb">#}
+{#                                        <img src="assets/images/author/author-2.jpg" alt="">#}
+{#                                    </div>#}
+{#                                    <div class="author-info">#}
+{#                                        <h4>Ms. Marry Jane</h4>#}
+{#                                        <span>CEO of AIG</span>#}
+{#                                        <span class="url"><a href="index.html#">http://aig.com</a></span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="testimonial gutter-item">#}
+{#                            <div class="testimonial-inner">#}
+{#                                <div class="testimonial-description">#}
+{#                                    <blockquote class="testimonials-text">#}
+{#                                        <p>Your crews work more than expected. Even I call at early morning or at night they come and do the work prompt and effective. They are friendly and has a careful style of work. I am satisfy and recommend other to use your service.</p>#}
+{#                                    </blockquote>#}
+{#                                </div>#}
+{#                                <div class="testimonial-author">#}
+{#                                    <div class="author-thumb">#}
+{#                                        <img src="assets/images/author/author-3.jpg" alt="">#}
+{#                                    </div>#}
+{#                                    <div class="author-info">#}
+{#                                        <h4>Celina</h4>#}
+{#                                        <span>CEO of KulerThemes</span>#}
+{#                                        <span class="url"><a href="index.html#">http://woothemes.com</a></span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="testimonial gutter-item">#}
+{#                            <div class="testimonial-inner">#}
+{#                                <div class="testimonial-description">#}
+{#                                    <blockquote class="testimonials-text">#}
+{#                                        <p>Technician came over to do a few odd jobs and did great work. Fixed a window, a sink and an electrical plug all for a reasonable price. I satisfy with his work and your service. Would definitely use them again.</p>#}
+{#                                    </blockquote>#}
+{#                                </div>#}
+{#                                <div class="testimonial-author">#}
+{#                                    <div class="author-thumb">#}
+{#                                        <img src="assets/images/author/author-4.jpg" alt="">#}
+{#                                    </div>#}
+{#                                    <div class="author-info">#}
+{#                                        <h4>Michael F. Schroeder</h4>#}
+{#                                        <span>CEO of Hastech</span>#}
+{#                                        <span class="url"><a href="index.html#">http://themesun.com</a></span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--Testimonial section end-->
+
+
+
+    <!--Blog section start-->
+    <div class="blog-section section bg-dark-two pt-95 pt-lg-75 pt-md-65 pt-sm-55 pt-xs-45 pb-55 pb-lg-35 pb-md-25 pb-sm-20 pb-xs-5">
+{#        <div class="container">#}
+
+{#            <div class="row">#}
+{#                <div class="col">#}
+{#                    <div class="section-title text-center color-white mb-40">#}
+{#                        <h1>News / Tips & Guides</h1>#}
+{#                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consectetur justo ac</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+
+{#            <div class="row">#}
+{#                <!-- Single Blog Start -->#}
+{#                <div class="blog col-lg-3 col-md-6 col-sm-6 mb-20">#}
+{#                    <div class="blog-inner">#}
+{#                        <div class="blog-image">#}
+{#                            <a href="blog-details.html" class="image"><img src="assets/images/blog/blog-1.jpg" alt=""></a>#}
+{#                            <ul class="meta">#}
+{#                                <li><i class="fa fa-clock-o"></i><a href="index.html#">April 17, 2019</a></li>#}
+{#                                <li><i class="fa fa-comments"></i>0</li>#}
+{#                            </ul>#}
+{#                        </div>#}
+{#                        <div class="content">#}
+{#                            <h3 class="title"><a href="blog-details.html">Choosing Which Roofing Material to Use for Your Home</a></h3>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!-- Single Blog End -->#}
+
+{#                <!-- Single Blog Start -->#}
+{#                <div class="blog col-lg-3 col-md-6 col-sm-6 mb-20">#}
+{#                    <div class="blog-inner">#}
+{#                        <div class="blog-image">#}
+{#                            <a href="blog-details.html" class="image"><img src="assets/images/blog/blog-2.jpg" alt=""></a>#}
+{#                            <ul class="meta">#}
+{#                                <li><i class="fa fa-clock-o"></i><a href="index.html#">April 17, 2019</a></li>#}
+{#                                <li><i class="fa fa-comments"></i>4</li>#}
+{#                            </ul>#}
+{#                        </div>#}
+{#                        <div class="content">#}
+{#                            <h3 class="title"><a href="blog-details.html">Choosing the Right Doors and Windows for your Home</a></h3>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!-- Single Blog End -->#}
+
+{#                <!-- Single Blog Start -->#}
+{#                <div class="blog col-lg-3 col-md-6 col-sm-6 mb-20">#}
+{#                    <div class="blog-inner">#}
+{#                        <div class="blog-image">#}
+{#                            <a href="blog-details.html" class="image"><img src="assets/images/blog/blog-3.jpg" alt=""></a>#}
+{#                            <ul class="meta">#}
+{#                                <li><i class="fa fa-clock-o"></i><a href="index.html#">April 17, 2019</a></li>#}
+{#                                <li><i class="fa fa-comments"></i>0</li>#}
+{#                            </ul>#}
+{#                        </div>#}
+{#                        <div class="content">#}
+{#                            <h3 class="title"><a href="blog-details.html">Low Water Pressure – What Can I Do?</a></h3>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!-- Single Blog End -->#}
+
+{#                <!-- Single Blog Start -->#}
+{#                <div class="blog col-lg-3 col-md-6 col-sm-6 mb-20">#}
+{#                    <div class="blog-inner">#}
+{#                        <div class="blog-image">#}
+{#                            <a href="blog-details.html" class="image"><img src="assets/images/blog/blog-4.jpg" alt=""></a>#}
+{#                            <ul class="meta">#}
+{#                                <li><i class="fa fa-clock-o"></i><a href="index.html#">April 17, 2015</a></li>#}
+{#                                <li><i class="fa fa-comments"></i>0</li>#}
+{#                            </ul>#}
+{#                        </div>#}
+{#                        <div class="content">#}
+{#                            <h3 class="title"><a href="blog-details.html">The Most Common Painting Mistakes</a></h3>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <!-- Single Blog End -->#}
+{#            </div>#}
+
+{#        </div>#}
+    </div>
+    <!--Blog section end-->
+{% endblock %}

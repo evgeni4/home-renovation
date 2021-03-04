@@ -1,0 +1,138 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AboutController!{% endblock %}
+
+{% block body %}
+    <!-- Breadcrumb Section Start -->
+    <div class="breadcrumb-section section bg-image jarallax overlay pt-150 pb-150 pt-sm-100 pb-sm-100 pt-xs-50 pb-xs-50" data-bg="{{ asset('assets/images/bg/about_page_title_bg.jpg') }}">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                    <div class="breadcrumb-title-two pt-80 pt-xs-0 pb-80 pb-xs-0">
+                        <h2 class="text-center">Мы предоставляем профессиональные услуги</h2>
+                        <p>ПОЛНОСТЬЮ ДОСТУПНО И ЭФФЕКТИВНО</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Section End -->
+    <!-- About Section Start -->
+    <div class="about-section section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-100 pb-lg-80 pb-md-65 pb-sm-60 pb-xs-50">
+        <div class="container">
+            <div class="row about-qute-area">
+                <div class="col-12">
+                    <div class="about-qute">
+                        <h2>“{{ about.titleTop }}.”</h2>
+                         {{ about.descriptionTop }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-content mb-sm-30 mb-xs-30">
+                        <h2>{{ about.title }}</h2>
+                        <p>{{ about.descriptionPage }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-page-image">
+                        <img src="assets/images/about/about_page_des.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section End -->
+    <!--Features section start-->
+    <div class="features-section-dark section bg-image jarallax pt-65 pt-sm-55 pt-xs-45 pb-30 pb-sm-20 pb-xs-10" data-bg="{{ asset('assets/images/bg/feature-bg.jpg') }}">
+        <div class="container">
+            <div class="row">
+                <div class="triangle col-lg-4 col-md-6 col-sm-12">
+                    <!-- Single Features Start -->
+                    <div class="feature-style-3 mb-35">
+                        <div class="features-icon">
+                            <i class="pe-7s-tools"></i>
+                        </div>
+                        <div class="content">
+                            <h4><a href="about.html#">Профессиональный мастер</a></h4>
+                            <p>От оценки вытяжного вентилятора до осмотра чердака и очистки змеевиков холодильника, чтобы обеспечить вам безопасную жизнь.</p>
+                         </div>
+                    </div>
+                    <!-- Single Features End -->
+                </div>
+                <div class="triangle col-lg-4 col-md-6 col-sm-12">
+                    <!-- Single Features Start -->
+                    <div class="feature-style-3 mb-35">
+                        <div class="features-icon">
+                            <i class="pe-7s-clock"></i>
+                        </div>
+                        <div class="content">
+                            <h4><a >Доступная цена</a></h4>
+                            <p>Мы делаем больше, чем просто ремонт - мы проверяем наличие сбоев, которые требуют внимания, чтобы обезопасить вас и сэкономить ваши деньги.</p>
+                         </div>
+                    </div>
+                    <!-- Single Features End -->
+                </div>
+                <div class="triangle col-lg-4 col-md-6 col-sm-12">
+                    <!-- Single Features Start -->
+                    <div class="feature-style-3 mb-35">
+                        <div class="features-icon">
+                            <i class="pe-7s-cash"></i>
+                        </div>
+                        <div class="content">
+                            <h4><a >24/7 Сервисы</a></h4>
+                            <p>Если вы оказались в аварийной ситуации, не беспокойтесь. Мы обеспечиваем круглосуточное обслуживание. Когда бы вы ни звонили, мы обслуживаем Вас.</p>
+                         </div>
+                    </div>
+                    <!-- Single Features End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Features section end-->
+
+
+    <!-- Team Section Start -->
+    <div class="team-section section pt-95 pt-lg-75 pt-md-65 pt-sm-55 pt-xs-45 pb-70 pb-lg-50 pb-md-40 pb-sm-20 pb-xs-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title text-center mb-35">
+                        <h1>Наша команда</h1>
+                        <p>У нас есть высококлассные рабочие, которые оснащены новейшими инструментами.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for team in teams %}
+                    <div class="col-md-6 col-sm-6">
+                        <!-- Single List Team Start -->
+                        <div class="single-team mb-30">
+                            <div class="team-image">
+                                <img src="{{ asset('uploads/team/'~team.imageThumbs) }}" alt="">
+                            </div>
+                            <div class="team-content">
+                                <h4>{{ team.name }}</h4>
+                                <p> <strong>
+                                    {% for teamSpecially in team.specially %}
+                                        {{ teamSpecially  }},
+                                    {% endfor %}
+                                    </strong>
+                                {{ team.description }}
+{#                                <ul class="social">#}
+{#                                    <li><a href="about.html#"><i class="fa fa-facebook"></i></a></li>#}
+{#                                    <li><a href="about.html#"><i class="fa fa-twitter"></i></a></li>#}
+{#                                    <li><a href="about.html#"><i class="fa fa-linkedin"></i></a></li>#}
+{#                                </ul>#}
+                            </div>
+                        </div>
+                        <!-- Single List Team End -->
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Team Section End -->
+
+{% endblock %}

@@ -1,0 +1,17 @@
+<!--Menu start-->
+<div class="col-12 d-flex">
+    <nav class="main-menu">
+        <ul>
+            <li><a href="/">Главная</a> </li>
+            <li><a href="{{ path('app_our_services') }}">Наши сервисы</a> </li>
+            <li><a href="{{ path('app_calculator') }}">Калькулятор стоимости</a> </li>
+            <li><a href="{{ path('app_about') }}">О нас</a> </li>
+            <li><a href="{{ path('app_contacts') }}">Связаться с нами</a> </li>
+            <li><a href="{{ path('app_testimonials') }}">Отзывы</a> </li>
+            {% if app.user %}
+                    <li>  <a href="{{ path('app_logout') }}">Выйти</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+<!--Menu end-->
